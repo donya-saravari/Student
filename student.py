@@ -8,7 +8,7 @@ class Student:
             if not name:
                 return
             student_id: int = len(self.student)+1
-            self.student[student_id]= {
+            self.student[student_id] = {
                 "First Name": name,
                 "student ID": student_id,
                 "Grade": [],
@@ -21,7 +21,7 @@ class Student:
         if not  input_string.isalpha() or not input_string.strip():
             raise ValueError("Name must be alphanumeric and non empty")
         return input_string
-    def found_student(self, name:str)-> int | None:
+    def found_student(self, name: str) -> int | None:
         for student_id, info in self.student.items():
             if info["First Name"] == name:
                 #print(f"Student {info['First Name']} with Student ID: {student_id} found successfully")
@@ -29,11 +29,11 @@ class Student:
         print("student not found")
         return None
     @staticmethod
-    def check_int_data(input_digit:str)->int:
+    def check_int_data(input_digit: str) -> int:
         if not input_digit.isdigit():
             raise ValueError("Name must be digit and non empty")
         return int(input_digit)
-    def enter_grade(self, number_of_grades:int, name:str)->None:
+    def enter_grade(self, number_of_grades: int, name: str)->None:
         try:
             student_id = self.found_student(name)
             if student_id in self.student:
@@ -62,14 +62,14 @@ class Student:
                 self.calculate_sum(name)
         else:
             print("Student not found")
-    def print_grade(self, name:str)->None:
+    def print_grade(self, name: str) -> None:
         student_id = self.found_student(name)
         if student_id in self.student:
             grade = self.student[student_id]["Grade"]
             print("Grades: ", grade)
         else:
             print("Student not found")
-def main()->None:
+def main() -> None:
     std = Student()
     while True:
         try:
